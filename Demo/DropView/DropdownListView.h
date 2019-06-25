@@ -11,6 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class DropdownItem;
+@class DropdownListView;
+
+typedef void(^dropSelectBlock)(DropdownListView *view);
+
 @interface DropdownListView : UIView
 /**
  字体颜色，默认 blackColor
@@ -40,6 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
  当前选中的DropdownListItem
  */
 @property (nonatomic, strong, readonly) DropdownItem *selectedItem;
+/**
+ 选中的block
+ */
+@property (nonatomic, copy) dropSelectBlock block;
 @end
 
 @interface DropdownItem : NSObject

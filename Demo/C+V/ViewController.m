@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "UILabel+AlignmentChar.h"
+
 #import "ShowTableViewCell.h"
 #import "DropdownListView.h"
 
@@ -45,6 +45,7 @@ static NSString *cellID = @"identifyCellId";
     }
     cell.layer.borderWidth = 1;
     cell.layer.borderColor = [UIColor blueColor].CGColor;
+    [cell configureData:self.dataSource];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,7 +56,7 @@ static NSString *cellID = @"identifyCellId";
 #pragma mark ************* load data *************
 - (void)loadData
 {
-    for (int i = 0; i < 15; i ++) {
+    for (int i = 0; i < 25; i ++) {
         DropdownItem *item = [[DropdownItem alloc]initWithItemId:[NSString stringWithFormat:@"%d",i] itemName:[NSString stringWithFormat:@"选项%d",i]];
         [self.dataSource addObject:item];
     }
@@ -65,7 +66,7 @@ static NSString *cellID = @"identifyCellId";
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 100, self.view.bounds.size.width, self.view.bounds.size.height - 200) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.tableFooterView = [UIView new];

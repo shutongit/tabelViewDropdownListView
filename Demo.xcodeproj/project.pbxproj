@@ -13,6 +13,11 @@
 		50174F2E22C0568A008EBA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50174F2D22C0568A008EBA30 /* Assets.xcassets */; };
 		50174F3122C0568A008EBA30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50174F2F22C0568A008EBA30 /* LaunchScreen.storyboard */; };
 		50174F3422C0568A008EBA30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50174F3322C0568A008EBA30 /* main.m */; };
+		50174F3F22C05960008EBA30 /* UILabel+AlignmentChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 50174F3E22C05960008EBA30 /* UILabel+AlignmentChar.m */; };
+		50F17DEC22C19E8500A2D60C /* DropdownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F17DEB22C19E8500A2D60C /* DropdownListView.m */; };
+		50F17DEF22C1B23300A2D60C /* dropdownFlag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F17DED22C1B23200A2D60C /* dropdownFlag@3x.png */; };
+		50F17DF022C1B23300A2D60C /* dropdownFlag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F17DEE22C1B23200A2D60C /* dropdownFlag@2x.png */; };
+		50F17DF322C1C59900A2D60C /* ShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F17DF222C1C59900A2D60C /* ShowTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,14 @@
 		50174F3022C0568A008EBA30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50174F3222C0568A008EBA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50174F3322C0568A008EBA30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50174F3D22C05960008EBA30 /* UILabel+AlignmentChar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+AlignmentChar.h"; sourceTree = "<group>"; };
+		50174F3E22C05960008EBA30 /* UILabel+AlignmentChar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AlignmentChar.m"; sourceTree = "<group>"; };
+		50F17DEA22C19E8400A2D60C /* DropdownListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DropdownListView.h; sourceTree = "<group>"; };
+		50F17DEB22C19E8500A2D60C /* DropdownListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropdownListView.m; sourceTree = "<group>"; };
+		50F17DED22C1B23200A2D60C /* dropdownFlag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdownFlag@3x.png"; sourceTree = "<group>"; };
+		50F17DEE22C1B23200A2D60C /* dropdownFlag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdownFlag@2x.png"; sourceTree = "<group>"; };
+		50F17DF122C1C59900A2D60C /* ShowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowTableViewCell.h; sourceTree = "<group>"; };
+		50F17DF222C1C59900A2D60C /* ShowTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +73,9 @@
 			children = (
 				50174F2422C05689008EBA30 /* AppDelegate.h */,
 				50174F2522C05689008EBA30 /* AppDelegate.m */,
-				50174F2722C05689008EBA30 /* ViewController.h */,
-				50174F2822C05689008EBA30 /* ViewController.m */,
+				50F17DF622C1E22C00A2D60C /* C+V */,
+				50F17DF522C1E21600A2D60C /* TextAlign */,
+				50F17DF422C1E1FE00A2D60C /* DropView */,
 				50174F2A22C05689008EBA30 /* Main.storyboard */,
 				50174F2D22C0568A008EBA30 /* Assets.xcassets */,
 				50174F2F22C0568A008EBA30 /* LaunchScreen.storyboard */,
@@ -69,6 +83,37 @@
 				50174F3322C0568A008EBA30 /* main.m */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		50F17DF422C1E1FE00A2D60C /* DropView */ = {
+			isa = PBXGroup;
+			children = (
+				50F17DEA22C19E8400A2D60C /* DropdownListView.h */,
+				50F17DEB22C19E8500A2D60C /* DropdownListView.m */,
+				50F17DEE22C1B23200A2D60C /* dropdownFlag@2x.png */,
+				50F17DED22C1B23200A2D60C /* dropdownFlag@3x.png */,
+			);
+			path = DropView;
+			sourceTree = "<group>";
+		};
+		50F17DF522C1E21600A2D60C /* TextAlign */ = {
+			isa = PBXGroup;
+			children = (
+				50174F3D22C05960008EBA30 /* UILabel+AlignmentChar.h */,
+				50174F3E22C05960008EBA30 /* UILabel+AlignmentChar.m */,
+			);
+			path = TextAlign;
+			sourceTree = "<group>";
+		};
+		50F17DF622C1E22C00A2D60C /* C+V */ = {
+			isa = PBXGroup;
+			children = (
+				50174F2722C05689008EBA30 /* ViewController.h */,
+				50174F2822C05689008EBA30 /* ViewController.m */,
+				50F17DF122C1C59900A2D60C /* ShowTableViewCell.h */,
+				50F17DF222C1C59900A2D60C /* ShowTableViewCell.m */,
+			);
+			path = "C+V";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,9 +173,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50F17DEF22C1B23300A2D60C /* dropdownFlag@3x.png in Resources */,
 				50174F3122C0568A008EBA30 /* LaunchScreen.storyboard in Resources */,
 				50174F2E22C0568A008EBA30 /* Assets.xcassets in Resources */,
 				50174F2C22C05689008EBA30 /* Main.storyboard in Resources */,
+				50F17DF022C1B23300A2D60C /* dropdownFlag@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +190,10 @@
 			files = (
 				50174F2922C05689008EBA30 /* ViewController.m in Sources */,
 				50174F3422C0568A008EBA30 /* main.m in Sources */,
+				50F17DEC22C19E8500A2D60C /* DropdownListView.m in Sources */,
 				50174F2622C05689008EBA30 /* AppDelegate.m in Sources */,
+				50F17DF322C1C59900A2D60C /* ShowTableViewCell.m in Sources */,
+				50174F3F22C05960008EBA30 /* UILabel+AlignmentChar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

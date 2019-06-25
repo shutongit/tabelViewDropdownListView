@@ -38,7 +38,12 @@ static CGFloat const kItemCellHeight = 40;
 #pragma mark ************* tableView datasource *************
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    static NSString *cellID = @"cellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (cell == nil) {
+      cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = _font;
     cell.textLabel.textColor = _textColor;
     DropdownItem *item = _dataSource[indexPath.row];
@@ -50,13 +55,17 @@ static CGFloat const kItemCellHeight = 40;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self selectItemAtIndex:indexPath.row];
     [self removeBackgroundView];
-//    if (_selectedBlock) {
-//        _selectedBlock(self);
-//    }
+    if (_block) {
+        _block(self);
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataSource.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kItemCellHeight;
 }
 
 #pragma mark ************* touch event *************
@@ -64,7 +73,7 @@ static CGFloat const kItemCellHeight = 40;
 {
     [self rotateArrowImage];
     
-    CGFloat tableHeight = _dataSource.count * kItemCellHeight;
+    CGFloat tableHeight = MIN(_dataSource.count * kItemCellHeight, 6 * kItemCellHeight);
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:self.backgroundView];
@@ -122,6 +131,7 @@ static CGFloat const kItemCellHeight = 40;
 #pragma mark ************* 配置基本属性 *************
 - (void)setupProperty
 {
+    _dataSource = [NSArray array];
     _textColor = [UIColor blackColor];
     _font = [UIFont systemFontOfSize:14];
     _textLabel.font = _font;
@@ -179,10 +189,12 @@ static CGFloat const kItemCellHeight = 40;
 }
 
 #pragma mark ************* lazy load *************
+
 - (UILabel*)textLabel {
     if (!_textLabel) {
         _textLabel = [UILabel new];
         _textLabel.userInteractionEnabled = YES;
+        _textLabel.backgroundColor = [UIColor clearColor];
     }
     return _textLabel;
 }
@@ -191,6 +203,7 @@ static CGFloat const kItemCellHeight = 40;
         _arrowImg = [UIImageView new];
         _arrowImg.image = [UIImage imageNamed:@"dropdownFlag"];
         _arrowImg.userInteractionEnabled = YES;
+        _arrowImg.backgroundColor = [UIColor clearColor];
     }
     return _arrowImg;
 }
@@ -201,15 +214,14 @@ static CGFloat const kItemCellHeight = 40;
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.tableFooterView = [UIView new];
-        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
         _tableView.layer.shadowOffset = CGSizeMake(4, 4);
         _tableView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
         _tableView.layer.shadowOpacity = 0.8;
         _tableView.layer.shadowRadius = 4;
         _tableView.layer.borderColor = [UIColor grayColor].CGColor;
         _tableView.layer.borderWidth = 0.5;
-        _tableView.clipsToBounds = NO;
-        _tableView.rowHeight = kItemCellHeight;
+        _tableView.clipsToBounds = YES;
     }
     return _tableView;
 }
